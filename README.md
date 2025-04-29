@@ -32,9 +32,9 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 
 | conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
-| s | -,0 | #FF0000 supported | supported | not supported | display a string |
-| x | #,0 | supported | supported | not supported | display an unisgned int in hexadecimal |
-| X | #,0 | supported | supported | not supported | display an unisgned int in HEXADECIMAL |
+| s | -,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000"> not supported</span> | display a string |
+| x | #,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000">not supported</span> | display an unisgned int in hexadecimal |
+| X | #,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000">not supported</span> | display an unisgned int in HEXADECIMAL |
 
 # __Known issues__
 
