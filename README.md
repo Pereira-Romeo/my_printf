@@ -30,11 +30,11 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 
 ### __Available conversions and what they support:__
 
-| conversion | flags | width | .precision | length modifiers | description |
+| Conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
-| s | -,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000"> not supported</span> | display a string |
-| x | #,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000">not supported</span> | display an unisgned int in hexadecimal |
-| X | #,0 | <span style="color:#00C400">supported</span> | <span style="color:#00C400">supported</span> | <span style="color:#C40000">not supported</span> | display an unisgned int in HEXADECIMAL |
+| s | -,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display a string |
+| x | #,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in hexadecimal |
+| X | #,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in HEXADECIMAL |
 
 # __Known issues__
 
