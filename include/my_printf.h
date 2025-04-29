@@ -97,6 +97,13 @@ int mod_x(va_list list, fspe_t *pf);
  */
 int mod_big_x(va_list list, fspe_t *pf);
 
+/** handle decimal transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_d(va_list list, fspe_t *pf);
 
 //utils:
 

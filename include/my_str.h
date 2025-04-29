@@ -18,20 +18,17 @@
  */
 int my_strlen(char *str);
 
-/** Finds the length from index n to the
- * next occurrence of atleast one character inside c
- * @param str string
- * @param n index to start at
- * @param c list of characters to stop at
- * @return length beteween n and first occurence of a char of c
- */
-int mstrn_to_clen(char *str, int n, char *c);
-
 /** Finds the number of digits in nb
  * @param nb int
  * @return length of nb
  */
 int my_intlen(int nb);
+
+/** Finds the number of digits in nb
+ * @param nb long int
+ * @return length of nb
+ */
+int my_lgilen(long int nb);
 
 /** Finds the number of digits in nb
  * @param nb long long int

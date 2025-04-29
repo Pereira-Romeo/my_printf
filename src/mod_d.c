@@ -8,56 +8,76 @@
 #include "my_printf.h"
 
 static
-int handle_precision(int length, fspe_t *pf)
-{
-    int len = 0;
-
-    while (len < pf->width - length)
-        len += write(pf->fd, "0", 1);
-    return len;
-}
-
-static
-int basic_mod_d(va_list list, fspe_t *pf)
+int int_mod_d(va_list list, fspe_t *pf)
 {
     int nb = va_arg(list, int);
-    int len = my_intlen(nb) + (pf->flags & 16 && nb > -1) ? 1 : 0;
-    int real_len = 0;
+    char buffer[12] = "00000000000";
+    char *ptr = buffer;
+    int Tlen = my_max(my_intlen(nb), pf->precision);
+    int len = 0;
 
     if (!(pf->flags & 4))
-        real_len += pf_width_handler(len, pf);
-    if (pf->flags & 16 && nb > -1)
-        real_len += write(pf->fd, "+", 1);
+        len += pf_width_handler(Tlen, pf);
     if (nb < 0) {
-        real_len += write(pf->fd, "-", 1);
+        len += write(pf->fd, "-", 1);
         nb *= -1;
     }
-    real_len = handle_precision(my_intlen(nb), pf);
-    real_len += my_putlli(nb);
+    len += zero_padding(my_intlen(nb), pf);
+    len += my_putint(nb);
     if (pf->flags & 4)
-        real_len += pf_width_handler(real_len, pf);
-    return real_len;
+        len += pf_width_handler(Tlen, pf);
+    return len;
 }
 
 static
 int long_mod_d(va_list list, fspe_t *pf)
 {
     long int nb = va_arg(list, long int);
+    char buffer[22] = "000000000000000000000";
+    char *ptr = buffer;
+    int Tlen = my_max(my_intlen(nb), pf->precision);
+    int len = 0;
+
+    if (!(pf->flags & 4))
+        len += pf_width_handler(Tlen, pf);
+    if (nb < 0) {
+        len += write(pf->fd, "-", 1);
+        nb *= -1;
+    }
+    len += zero_padding(my_intlen(nb), pf);
+    len += my_putint(nb);
+    if (pf->flags & 4)
+        len += pf_width_handler(Tlen, pf);
+    return len;
 }
 
 static
-int lglg_mod_d(va_list list, fspe_t *pf)
+int lli_mod_d(va_list list, fspe_t *pf)
 {
     long long int nb = va_arg(list, long long int);
+    char buffer[22] = "000000000000000000000";
+    char *ptr = buffer;
+    int Tlen = my_max(my_llilen(nb), pf->precision);
+    int len = 0;
+
+    if (!(pf->flags & 4))
+        len += pf_width_handler(Tlen, pf);
+    if (nb < 0) {
+        len += write(pf->fd, "-", 1);
+        nb *= -1;
+    }
+    len += zero_padding(my_intlen(nb), pf);
+    len += my_putint(nb);
+    if (pf->flags & 4)
+        len += pf_width_handler(Tlen, pf);
+    return len;
 }
 
-/*
-if (pf->len_mod & 2)
-    return lglg_mod_d(list, pf);
-if (pf->len_mod & 1)
-    return long_mod_d(list, pf);
-*/
 int mod_d(va_list list, fspe_t *pf)
-{    
-    return basic_mod_d(list, pf);
+{
+    if (pf->len_mod & 2)
+        return lli_mod_d(list, pf);
+    if (pf->len_mod & 1)
+        return long_mod_d(list, pf);
+    return int_mod_d(list, pf);
 }

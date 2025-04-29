@@ -35,10 +35,27 @@ void test_mod_x(void)
     printf("10 in hexa is: %#8x\n", 10);
 }
 
+void test_mod_d(void)
+{
+    my_printf("15 in hexa is: %8.8d\n", 15);
+    printf("15 in hexa is: %8.8d\n", 15);
+    my_printf("16 in hexa is: %8d\n", -16);
+    printf("16 in hexa is: %8d\n", -16);
+    my_printf("69 in hexa is: %d\n", 69);
+    printf("69 in hexa is: %d\n", 69);
+    my_printf("5543646 in hexa is: %.8d\n", -5543646);
+    printf("5543646 in hexa is: %.8d\n", -5543646);
+    my_printf("10 in hexa is: %8.10d\n", 10);
+    printf("10 in hexa is: %8.10d\n", 10);
+    my_printf("15 in hexa is: %- 8.8d\n", -15);
+    printf("15 in hexa is: %- 8.8d\n", -15);
+}
+
 int main(void)
 {
     test_mod_s();
     test_mod_x();
+    test_mod_d();
     my_printf("Done testing\n");
     return 0;
 }

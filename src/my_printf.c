@@ -14,7 +14,7 @@ const spe_t spe_tab[] =
     {'s', &mod_s}, //string
     {'x', &mod_x}, //unsigned hexadecimal conversion
     {'X', &mod_big_x}, //unsigned HEXADECIMAL conversion
-    {'d', NULL}, //int, long int, long long int
+    {'d', &mod_d}, //int, long int, long long int
     {'i', NULL}, //int, long int, long long int
     {'f', NULL}, //double
     {'F', NULL}, //double
