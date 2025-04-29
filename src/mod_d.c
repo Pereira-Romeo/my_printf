@@ -35,7 +35,7 @@ int long_mod_d(va_list list, fspe_t *pf)
     long int nb = va_arg(list, long int);
     char buffer[22] = "000000000000000000000";
     char *ptr = buffer;
-    int Tlen = my_max(my_intlen(nb), pf->precision);
+    int Tlen = my_max(my_lgilen(nb), pf->precision);
     int len = 0;
 
     if (!(pf->flags & 4))
@@ -44,8 +44,8 @@ int long_mod_d(va_list list, fspe_t *pf)
         len += write(pf->fd, "-", 1);
         nb *= -1;
     }
-    len += zero_padding(my_intlen(nb), pf);
-    len += my_putint(nb);
+    len += zero_padding(my_lgilen(nb), pf);
+    len += my_putlgi(nb);
     if (pf->flags & 4)
         len += pf_width_handler(Tlen, pf);
     return len;
@@ -66,8 +66,8 @@ int lli_mod_d(va_list list, fspe_t *pf)
         len += write(pf->fd, "-", 1);
         nb *= -1;
     }
-    len += zero_padding(my_intlen(nb), pf);
-    len += my_putint(nb);
+    len += zero_padding(my_llilen(nb), pf);
+    len += my_putlli(nb);
     if (pf->flags & 4)
         len += pf_width_handler(Tlen, pf);
     return len;

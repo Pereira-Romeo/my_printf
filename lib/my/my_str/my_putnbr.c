@@ -22,6 +22,21 @@ int my_putlli(long long int nb)
     return my_llilen(nb);
 }
 
+int my_putlgi(long int nb)
+{
+    if (nb < 0) {
+        my_putchar('-');
+        nb *= -1;
+    }
+    if (nb < 10) {
+        my_putchar((nb % 10) + 48);
+    } else {
+        my_putlgi(nb / 10);
+        my_putlgi(nb % 10);
+    }
+    return my_lgilen(nb);
+}
+
 int my_putint(int nb)
 {
     if (nb < 0) {

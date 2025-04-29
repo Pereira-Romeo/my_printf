@@ -192,6 +192,13 @@ int my_putchar(char const c);
  */
 int my_putint(int nb);
 
+
+/** Write a long int to the standard output
+ * @param nb number to write
+ * @returns number characters written
+ */
+int my_putlgi(long int nb);
+
 /** Write a long long int to the standard output
  * @param nb number to write
  * @returns number characters written
