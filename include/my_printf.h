@@ -15,7 +15,15 @@
     #include <stdarg.h>
     #include "my_errno.h"
     #include "my_bool.h"
+    #include "my_str.h"
+    #include "my_math.h"
     #define NB_SPE 20 //number of specifiers
+    //characters to handle up to base 16 in lowercase
+    #define BASE_CHARS "0123456789abcdef"
+    //characters to handle up to base 16 in uppercase
+    #define M_BASE_CHARS "0123456789ABCDEF"
+    //base 16; hexa
+    #define X_BASE 16
 
 int my_printf(char *format, ...);
 
@@ -65,35 +73,44 @@ typedef struct spe_s {
 
 //transformations:
 
-//handle a string transformation
-//@param list va_list
-//@param pf fspe_t struct
-//@returns number of written characters
-//OR -1 on error
+/** handle a string transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
 int mod_s(va_list list, fspe_t *pf);
+
+/** handle hexadecimal transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_x(va_list list, fspe_t *pf);
+
+/** handle HEXADECIMAL transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_big_x(va_list list, fspe_t *pf);
+
 
 //utils:
 
-//Get length of an str
-//@param str string to get length of
-//@returns length of str
-int pf_strlen(char *str);
-
-//Get smallest value
-//@param v1 first number to compare
-//@param v2 second number to compare
-//@returns smallest value
-int pf_min(int v1, int v2);
-
-//Add enough padding to reach minimum field width if padding is neeeded
-//@param length current field width
-//@param pf fspe_t struct
-//@returns number of characters written
+/** Add enough padding to reach minimum field width if padding is needed
+ * @param length current field width
+ * @param pf fspe_t struct
+ * @returns number of characters written
+ */
 int pf_width_handler(int length, fspe_t *pf);
 
-//get a number from a string
-//@param str string to get number from
-//@returns the number in str
-int pf_getint(char *str);
+/** add enough '0' to reach the minimum precision if padding is needed
+ * @param length length of the number to be written
+ * @param pf
+ */
+int zero_padding(int length, fspe_t *pf);
 
 #endif /* MA_PRINTF_H */

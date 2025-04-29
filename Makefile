@@ -8,7 +8,7 @@
 SRC := main.c
 SRC += $(wildcard src/*.c)
 
-OBJ = $(SRC:.o=.c)
+OBJ = $(SRC:.c=.o)
 
 NAME = main
 
@@ -26,6 +26,7 @@ $(NAME): mylib $(OBJ)
 
 clean:
 	make -C lib/my fclean
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f libmy.a
