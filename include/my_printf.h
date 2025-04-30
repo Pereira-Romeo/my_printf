@@ -123,7 +123,8 @@ int pf_width_handler(int length, fspe_t *pf);
 
 /** add enough '0' to reach the minimum precision if padding is needed
  * @param length length of the number to be written
- * @param pf
+ * @param pf fspe_t struct
+ * @returns length of written characters
  */
 int zero_padding(int length, fspe_t *pf);
 
@@ -132,4 +133,9 @@ int pf_putlgi(long int nb, fspe_t *pf);
 int pf_putint(int nb, fspe_t *pf);
 int pf_putchar(char c, fspe_t *pf);
 
+/** print a + if flag '+' is present
+ * @param pf fsep_t struct
+ * @returns length of written characters
+ */
+int print_plus(fspe_t *pf);
 #endif /* MA_PRINTF_H */

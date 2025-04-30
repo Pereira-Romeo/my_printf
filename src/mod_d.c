@@ -7,6 +7,13 @@
 
 #include "my_printf.h"
 
+int print_plus(fspe_t *pf)
+{
+    if (pf->flags & 16)
+        return write(pf->fd, "+", 1);
+    return 0;
+}
+
 int mod_d(va_list list, fspe_t *pf)
 {
     if (pf->len_mod & 2)

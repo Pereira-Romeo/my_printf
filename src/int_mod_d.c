@@ -28,11 +28,14 @@ int int_mod_d(va_list list, fspe_t *pf)
     int Tlen = my_max(my_intlen(nb), pf->precision);
     int len = 0;
 
+    Tlen += (nb > 0 && pf->flags & 16) ? 1 : 0;
     if (!(pf->flags & 4))
         len += pf_width_handler(Tlen, pf);
     if (nb < 0) {
         len += write(pf->fd, "-", 1);
         nb *= -1;
+    } else {
+        len += print_plus(pf);
     }
     len += zero_padding(my_intlen(nb), pf);
     len += pf_putint(nb, pf);

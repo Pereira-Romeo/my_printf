@@ -23,7 +23,7 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 
 ### __Available functions:__
 - ```my_printf(char *format, ...);```
-- ```my_dprintf(int fd, char *format, ...)```
+- ```my_dprintf(int fd, char *format, ...);```
 
 ### __Format of the format string:__
 ```%[flags][width][.precision][length modifier]conversion```
@@ -40,7 +40,7 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 | Conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
 | s | -, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display a string |
-| d | 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | display an int in decimal |
+| d | 0, + | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | display an int in decimal |
 | x | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in hexadecimal |
 | X | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in HEXADECIMAL |
 

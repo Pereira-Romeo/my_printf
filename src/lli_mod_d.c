@@ -33,6 +33,8 @@ int lli_mod_d(va_list list, fspe_t *pf)
     if (nb < 0) {
         len += write(pf->fd, "-", 1);
         nb *= -1;
+    } else {
+        len += print_plus(pf);
     }
     len += zero_padding(my_llilen(nb), pf);
     len += pf_putlli(nb, pf);
