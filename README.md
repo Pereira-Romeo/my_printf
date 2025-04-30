@@ -30,12 +30,21 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 
 ### __Available conversions and what they support:__
 
+> [!WARNING]
+> Some conversion do not do the same things as libc's printf, pay attention to the descriptions !
+
+> [!TIP]
+> Any conversions that use lists/arrays need to be null-terminated.\
+> e.g. %s "use a string ended by: \0"; %S "use", "a list of strings", "ended by", NULL
+
 | Conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
-| s | -,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display a string |
-| x | #,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in hexadecimal |
-| X | #,0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in HEXADECIMAL |
+| s | -, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display a string |
+| d | 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | display an int in decimal |
+| x | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in hexadecimal |
+| X | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in HEXADECIMAL |
 
 # __Known issues__
 
+ - some flags aren't supported
  - length modifiers aren't supported by any conversions so far
