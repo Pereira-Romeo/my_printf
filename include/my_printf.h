@@ -105,6 +105,13 @@ int mod_big_x(va_list list, fspe_t *pf);
  */
 int mod_d(va_list list, fspe_t *pf);
 
+//mod_d if is type int
+int int_mod_d(va_list list, fspe_t *pf);
+//mod_d if is type long int
+int long_mod_d(va_list list, fspe_t *pf);
+//mod_d if is type long long int
+int lli_mod_d(va_list list, fspe_t *pf);
+
 //utils:
 
 /** Add enough padding to reach minimum field width if padding is needed
@@ -119,5 +126,10 @@ int pf_width_handler(int length, fspe_t *pf);
  * @param pf
  */
 int zero_padding(int length, fspe_t *pf);
+
+int pf_putlli(long long int nb, fspe_t *pf);
+int pf_putlgi(long int nb, fspe_t *pf);
+int pf_putint(int nb, fspe_t *pf);
+int pf_putchar(char c, fspe_t *pf);
 
 #endif /* MA_PRINTF_H */

@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <stdio.h>
 
 void test_mod_s(void)
 {
@@ -43,10 +44,10 @@ void test_mod_d(void)
     printf("16 in hexa is: %8d\n", -16);
     my_printf("69 in hexa is: %d\n", 69);
     printf("69 in hexa is: %d\n", 69);
-    my_printf("5543646 in hexa is: %.8d\n", -5543646);
-    printf("5543646 in hexa is: %.8d\n", -5543646);
-    my_printf("10 in hexa is: %8.10d\n", 10);
-    printf("10 in hexa is: %8.10d\n", 10);
+    my_printf("long int: %.8ld\n", 1191981951651689151);
+    printf("long int: %.8ld\n", 1191981951651689151);
+    my_printf("long int: %8.10ld\n", 1015160854169810681);
+    printf("long int: %8.10ld\n", 1015160854169810681);
     my_printf("15 in hexa is: %- 8.8d\n", -15);
     printf("15 in hexa is: %- 8.8d\n", -15);
 }
