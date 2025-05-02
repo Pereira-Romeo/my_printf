@@ -40,7 +40,7 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 | Conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
 | s | [0, -] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a string |
-| S | [0, -, ] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a list of string. ```width```, ```.precision``` and all ```flags``` but ' ' are used for the strings as if calling %s on all of the strings. By default all strings will be separated by a [new line] character but if the flag ' ' is present, they will be separated by a space. |
+| S | [```0```, ```-```, ``` ```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a list of string. ```width```, ```.precision``` and all ```flags``` but ```' '``` are used for the strings as if calling %s on all of the strings. By default all strings will be separated by a [new line] character but if the flag ```' '``` is present, they will be separated by a space. |
 | d | [0, +] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | Display an int in decimal |
 | x | [#, 0] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in hexadecimal |
 | X | [#, 0] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
@@ -48,4 +48,4 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 # __Known issues__
 
  - some flags aren't supported
- - length modifiers aren't supported by any conversions so far
+ - length modifiers aren't supported by many conversions
