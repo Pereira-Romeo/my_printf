@@ -8,9 +8,6 @@ This printf does not use any mallocs, but it has static buffers where possible t
 > This my_printf will be available in [my_lib](https://github.com/Pereira-Romeo/My_lib). \
 > Since it depends heavily on my library it would be annoying to have to keep it outside the library like it is in this repo. 
 
-> [!CAUTION]
-> It isn't yet in my_lib since it doesn't handle as many conversion as the old version just yet, even tho is handles the current ones much better than the old one.
-
 > [!TIP]
 > For easier reading i recommend to look at it from [here](./README.md).
 
@@ -49,6 +46,9 @@ This printf does not use any mallocs, but it has static buffers where possible t
 | X | [```#```,```0```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
 
 # __Known issues__
+
+> [!CAUTION]
+> It isn't yet in my_lib since it doesn't handle as many conversion as the old version just yet, even tho is handles the current ones much better than the old one.
 
  - some flags aren't supported
  - length modifiers aren't supported by many conversions
