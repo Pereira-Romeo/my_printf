@@ -15,8 +15,9 @@ const spe_t spe_tab[] =
     {'x', &mod_x}, //unsigned hexadecimal conversion
     {'X', &mod_big_x}, //unsigned HEXADECIMAL conversion
     {'d', &mod_d}, //int, long int, long long int
-    {'i', NULL}, //int, long int, long long int
+    {'S', &mod_big_s}, //list of string
     {'f', NULL}, //double
+    {'i', NULL}, //int, long int, long long int
     {'F', NULL}, //double
     {'p', NULL}, //pointer
     {'u', NULL}, //unsigned decimal conversion
@@ -31,7 +32,6 @@ const spe_t spe_tab[] =
     {'g', NULL}, //double, chosen btw e and f
     {'G', NULL}, //double, chosen btew E and F
     {'n', NULL}, //int *, store characters written so far
-    {'S', NULL}, //list of string (str_ puttab)
     {'\0', NULL}
 };
 
@@ -114,7 +114,7 @@ int printf_loop(char *format, va_list list, fspe_t *pf)
 
 int my_printf(char *format, ...)
 {
-    fspe_t pf = {STDOUT_FILENO, 0, 0, 0, 0, 0};
+    fspe_t pf = {STDOUT_FILENO, 0, -1, -1, 0, 0};
     int len = 0;
     va_list list;
 

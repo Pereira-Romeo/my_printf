@@ -33,16 +33,17 @@ Since it depends heavily on my library it would be annoying to have to keep it o
 > [!WARNING]
 > Some conversion do not do the same things as libc's printf, pay attention to the descriptions !
 
-> [!TIP]
+> [!NOTE]
 > Any conversions that use lists/arrays need to be null-terminated.\
 > e.g. %s "use a string ended by: \0"; %S "use", "a list of strings", "ended by", NULL
 
 | Conversion | flags | width | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
-| s | -, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display a string |
-| d | 0, + | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | display an int in decimal |
-| x | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in hexadecimal |
-| X | #, 0 | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | display an unisgned int in HEXADECIMAL |
+| s | [0, -] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a string |
+| S | [0, -, ] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a list of string. ```width```, ```.precision``` and all ```flags``` but ' ' are used for the strings as if calling %s on all of the strings. By default all strings will be separated by a [new line] character but if the flag ' ' is present, they will be separated by a space. |
+| d | [0, +] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | Display an int in decimal |
+| x | [#, 0] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in hexadecimal |
+| X | [#, 0] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
 
 # __Known issues__
 

@@ -20,7 +20,7 @@ void reset_pf(fspe_t *pf)
 {
     pf->flags = 0;
     pf->len_mod = 0;
-    pf->precision = 0;
+    pf->precision = -1;
     pf->width = 0;
 }
 
@@ -63,9 +63,11 @@ int add_flags(char flag, fspe_t *mod)
 }
 
 static
-void add_width(fspe_t *pf, char **ptr, va_list list)
+void add_precision(fspe_t *pf, char **ptr, va_list list)
 {
     (*ptr)++;
+    if (!my_char_isnumer(**ptr) && **ptr != '*')
+        return;
     if (**ptr == '*') {
         pf->precision = va_arg(list, int);
         (*ptr)++;
@@ -88,7 +90,7 @@ void add_wp(fspe_t *pf, char **ptr, va_list list)
             (*ptr)++;
     }
     if (**ptr == '.') {
-        add_width(pf, ptr, list);
+        add_precision(pf, ptr, list);
     }
 }
 

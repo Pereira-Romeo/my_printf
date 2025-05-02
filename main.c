@@ -12,13 +12,13 @@ void test_mod_s(void)
 {
     my_printf("Hello %s!\n", "World");
     printf("Hello %s!\n", "World");
-    my_printf("test '#+- 012.5s' %- 12.5s!\n", "World");
-    printf("test '#+- 012.5s' %- 12.5s!\n", "World");
-    my_printf("test '12.3s' %+ 12.3s!\n", "World");
+    my_printf("test '-012.5s' %-12.5s!\n", "World");
+    printf("test '-012.5s' %-12.5s!\n", "World");
+    my_printf("test '12.3s' %12.3s!\n", "World");
+    printf("test '12.3s' %12.3s!\n", "World");
     my_printf("test 2 mods back to back %s%x\n", "World", 10);
     printf("test 2 mods back to back %s%x\n", "World", 10);
     my_printf("empty mod at end of string %");
-    printf("empty mod at end of string %");
     my_printf("\n");
     my_printf("empty mod at end of string but with formatting %#0 12ll");
     my_printf("\n");
@@ -56,28 +56,20 @@ void test_mod_d(void)
     printf("15 in hexa is: %- 8.8d\n", -15);
 }
 
-void test_mod_f(void)
+void test_mod_big_s(void)
 {
-    printf("f 69.96: %f\n", 69.96);
-    printf("f -49.3: %f\n", -49.3);
-    printf("69.96: %+.3f\n", 69.96);
-    printf("-49.3: %+.3f\n", -49.3);
-    printf(" .0f 69.96: % .0f\n", 69.96);
-    printf(".0f -49.3: %.0f\n", -49.3);
-    printf(".0f 69.96: %#.0f\n", 69.96);
-    printf(".0f -49.3: %#.0f\n", -49.3);
-    printf("#f 69.0: %#f\n", 69.0);
-    printf("#f -49.0: %#f\n", -49.0);
-    printf("#.0f 69.0: %#.0f\n", 69.0);
-    printf("#.0f -49.0: %#.0f\n", -49.0);
+    char *strs[] = {"hello", "world", "here is", "a", "list of string!", NULL};
+
+    my_printf("strs: %10S\n", strs);
+    my_printf("strs: % S\n", strs);
 }
 
 int main(void)
 {
-    test_mod_s();
-    test_mod_x();
-    test_mod_d();
-    test_mod_f();
+    //test_mod_s();
+    //test_mod_x();
+    //test_mod_d();
+    test_mod_big_s();
     my_printf("Done testing\n");
     return 0;
 }

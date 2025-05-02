@@ -97,6 +97,14 @@ int mod_x(va_list list, fspe_t *pf);
  */
 int mod_big_x(va_list list, fspe_t *pf);
 
+/** handle list of strings transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_big_s(va_list list, fspe_t *pf);
+
 /** handle decimal transformation
  * @param list va_list
  * @param pf fspe_t struct
@@ -112,7 +120,7 @@ int long_mod_d(va_list list, fspe_t *pf);
 //mod_d if is type long long int
 int lli_mod_d(va_list list, fspe_t *pf);
 
-//utils:
+//------------------------- utils -------------------------//
 
 /** Add enough padding to reach minimum field width if padding is needed
  * @param length current field width
