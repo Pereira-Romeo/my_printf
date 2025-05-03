@@ -51,5 +51,6 @@ This printf does not use any mallocs, but it has static buffers where possible t
 > [!CAUTION]
 > It isn't yet in my_lib since it doesn't handle as many conversion as the old version just yet, even tho is handles the current ones much better than the old one.
 
+ - %b is not actually a thing, it's still in developpement, hopefully won't be next day before it is done
  - some flags aren't supported
  - length modifiers aren't supported by many conversions
