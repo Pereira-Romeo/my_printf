@@ -37,13 +37,14 @@ This printf does not use any mallocs, but it has static buffers where possible t
 > Any conversions that use lists/arrays need to be null-terminated.\
 > e.g. %s "use a string ended by: \0"; %S "use", "a list of strings", "ended by", NULL
 
-| Conversion | flags | width | .precision | length modifiers | description |
+| Conversion |   flags   |   width   | .precision | length modifiers | description |
 | :--------: | :---: | :---: | :--------: | :--------------: |-------------|
-| s | [```0```,```-```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a string |
-| S | [```0```,```-```,``` ```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a list of string. ```width```, ```.precision``` and all ```flags``` but ```' '``` are used for the strings as if calling %s on all of the strings. By default all strings will be separated by a [new line] character but if the flag ```' '``` is present, they will be separated by a space. |
-| d | [```0```,```+```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | Display an int in decimal |
-| x | [```#```,```0```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in hexadecimal |
-| X | [```#```,```0```] | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
+| s | <ul><li>```0```: pad with 0</li><li>```-```: pad on the right</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a string |
+| S | <ul><li>```0```: pad with 0</li><li>```-```: pad on the right</li><li>```' '```: seperate strings with spaces</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a list of string. ```width```, ```.precision``` and all ```flags``` but ```' '``` are used for the strings as if calling %s on all of the strings. By default, strings will be separated by a [new line] character. |
+| d | <ul><li>```0```: pad with 0</li><li>```+```: display sign even on positive numbers</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | l (long), ll (long long) | Display an int in decimal |
+| x | <ul><li>```#```: prefix the result with 0x</li><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in hexadecimal |
+| X | <ul><li>```#```: prefix the result with 0X</li><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
+| b | <ul><li>```#```: prefix the result with 0b</li><li>```0```: pad with 0</li><li>```' '```: add a space every 4 digits</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an int in binary. |
 
 # __Known issues__
 
