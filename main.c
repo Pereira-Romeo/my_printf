@@ -8,6 +8,7 @@
 #include "my.h"
 #include <stdio.h>
 
+static
 void test_mod_s(void)
 {
     my_printf("Hello %s!\n", "World");
@@ -26,6 +27,7 @@ void test_mod_s(void)
     my_dprintf(STDERR_FILENO, "This one is in the STDERR_FILENO\n");
 }
 
+static
 void test_mod_x(void)
 {
     my_printf("15 in hexa is: %.8x\n", 15);
@@ -77,13 +79,30 @@ void test_mod_b(void)
     my_printf("69420:%# .20b\n", 69420);
 }
 
+void test_mod_f(void)
+{
+    my_printf("69.69: %10f\n", 69.69);
+    printf("69.69: %10f\n", 69.69);
+    my_printf("49.3: %.2f\n", 49.3);
+    printf("49.3: %.2f\n", 49.3);
+    my_printf("10: %f\n", 10.0);
+    printf("10: %f\n", 10.0);
+    my_printf("10: %4.0f\n", 10.0);
+    printf("10: %4.0f\n", 10.0);
+    my_printf("10: %#4.0f\n", 10.0);
+    printf("10: %#4.0f\n", 10.0);
+    my_printf("10: %#-4.0f\n", 10.0);
+    printf("10: %#-4.0f\n", 10.0);
+}
+
 int main(void)
 {
-    //test_mod_s();
-    //test_mod_x();
-    //test_mod_d();
-    //test_mod_big_s();
+    test_mod_s();
+    test_mod_x();
+    test_mod_d();
+    test_mod_big_s();
     test_mod_b();
+    test_mod_f();
     my_printf("Done testing\n");
     return 0;
 }

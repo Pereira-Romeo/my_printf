@@ -28,7 +28,7 @@ int get_binary(char *buffer, int val, fspe_t *pf)
     for (unsigned int i = 0; i < BITS_INT + 7; i++) {
         if ((i + 1) % 5 == 0 && i > 0 && pf->flags & 8)
             i++;
-        buffer[BITS_INT + 6 - i] = (val & reader) ? '1' : '0' ;
+        buffer[BITS_INT + 6 - i] = (val & reader) ? '1' : '0';
         val >>= 1;
         if (!val)
             return BITS_INT + 6 - i;

@@ -108,20 +108,3 @@ void make_fspe_mod(fspe_t *pf, char **ptr, va_list list)
         break;
     }
 }
-
-void fspe_mod_debug(fspe_t *mod)
-{
-    printf("\n");
-    printf("\e[1;34mflags:\e[0m\n'#':%d\n'0':%d\n'-':%d\n' ':%d\n'+':%d\n"
-    "overall: %d\n",
-    mod->flags & 1, mod->flags & 2, mod->flags & 4, mod->flags & 8,
-    mod->flags & 16, mod->flags);
-    printf("\e[1;34mwidth:\e[0m %d\n\e[1;34mprecision:\e[0m %d\n",
-    mod->width, mod->precision);
-    printf("\e[1;34mlength modifiers:\e[0m\nl :%d\nll:%d\nh :%d\nhh:%d\n"
-    "overall: %d\n",
-    mod->len_mod & 1, mod->len_mod & 2, mod->len_mod & 4, mod->len_mod & 8,
-    mod->len_mod);
-    printf("\e[1;34mcurrent length:\e[0m %d\n", mod->current_len);
-    printf("\n");
-}

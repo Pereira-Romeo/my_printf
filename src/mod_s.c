@@ -36,7 +36,7 @@ int mod_s(va_list list, fspe_t *pf)
 int mod_big_s(va_list list, fspe_t *pf)
 {
     char **str_list = va_arg(list, char **);
-    char separator = (pf->flags & 8) ? ' ': '\n';
+    char separator = (pf->flags & 8) ? ' ' : '\n';
     int len = 0;
 
     while (*str_list) {

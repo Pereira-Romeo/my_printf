@@ -130,6 +130,14 @@ int long_mod_d(va_list list, fspe_t *pf);
 //mod_d if is type long long int
 int lli_mod_d(va_list list, fspe_t *pf);
 
+/** handle double transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_f(va_list list, fspe_t *pf);
+
 //------------------------- utils -------------------------//
 
 /** Add enough padding to reach minimum field width if padding is needed
