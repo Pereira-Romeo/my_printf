@@ -24,6 +24,8 @@
     #define M_BASE_CHARS "0123456789ABCDEF"
     //base 16; hexa
     #define X_BASE 16
+    //nb bits in int
+    #define BITS_INT sizeof(int) * 8
 
 int my_printf(char *format, ...);
 
@@ -96,6 +98,14 @@ int mod_x(va_list list, fspe_t *pf);
  * OR -1 on error
  */
 int mod_big_x(va_list list, fspe_t *pf);
+
+/** handle binary transformation
+ * @param list va_list
+ * @param pf fspe_t struct
+ * @returns number of written characters
+ * OR -1 on error
+ */
+int mod_b(va_list list, fspe_t *pf);
 
 /** handle list of strings transformation
  * @param list va_list

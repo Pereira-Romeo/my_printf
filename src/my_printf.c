@@ -11,18 +11,18 @@
 static
 const spe_t spe_tab[] =
 {
+    {'d', &mod_d}, //int, long int, long long int
     {'s', &mod_s}, //string
     {'x', &mod_x}, //unsigned hexadecimal conversion
     {'X', &mod_big_x}, //unsigned HEXADECIMAL conversion
-    {'d', &mod_d}, //int, long int, long long int
     {'S', &mod_big_s}, //list of string
+    {'b', &mod_b}, //unsigned binary conversion
     {'f', NULL}, //double
     {'i', NULL}, //int, long int, long long int
     {'F', NULL}, //double
     {'p', NULL}, //pointer
     {'u', NULL}, //unsigned decimal conversion
     {'c', NULL}, //unsigned char
-    {'b', NULL}, //unsigned binary conversion (complete liberty on flags)
     {'a', NULL}, //double in hexadecimal
     {'A', NULL}, //double in HEXADECIMAL
     {'e', NULL}, //double in scientific

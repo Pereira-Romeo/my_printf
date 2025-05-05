@@ -64,12 +64,26 @@ void test_mod_big_s(void)
     my_printf("strs: % S\n", strs);
 }
 
+void test_mod_b(void)
+{
+    my_printf("1:%8.4b\n", 1);
+    my_printf("69:% .8b\n", 69);
+    my_printf("16:%#.8b\n", 16);
+    my_printf("16:%# .8b\n", 16);
+    my_printf("16:%# .8b\n", 16);
+    my_printf("16:%# .12b\n", 16);
+    my_printf("16:%# .14b\n", 16);
+    my_printf("16:%# .16b\n", 16);
+    my_printf("69420:%# .20b\n", 69420);
+}
+
 int main(void)
 {
     //test_mod_s();
     //test_mod_x();
     //test_mod_d();
-    test_mod_big_s();
+    //test_mod_big_s();
+    test_mod_b();
     my_printf("Done testing\n");
     return 0;
 }
