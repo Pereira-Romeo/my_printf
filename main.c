@@ -42,6 +42,7 @@ void test_mod_x(void)
     printf("10 in hexa is: %#8x\n", 10);
 }
 
+static
 void test_mod_d(void)
 {
     my_printf("15 in hexa is: %+8.8d\n", 15);
@@ -95,6 +96,17 @@ void test_mod_f(void)
     printf("10: %#-4.0f\n", 10.0);
 }
 
+void test_mod_p(void)
+{
+    char bruh[] = "hello there!";
+    char *bruh2 = bruh + 2;
+
+    my_printf("bruh is: '%s' at %p\n", bruh, bruh);
+    printf("bruh is: '%s' at %p\n", bruh, bruh);
+    my_printf("bruh2 is: '%*s' at %.20p\n", my_strlen(bruh) - 1, bruh2, bruh2);
+    printf("bruh2 is: '%*s' at %#.20p\n", my_strlen(bruh) - 1, bruh2, bruh2);
+}
+
 int main(void)
 {
     test_mod_s();
@@ -103,6 +115,7 @@ int main(void)
     test_mod_big_s();
     test_mod_b();
     test_mod_f();
+    test_mod_p();
     my_printf("Done testing\n");
     return 0;
 }

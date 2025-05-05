@@ -18,9 +18,9 @@ const spe_t spe_tab[] =
     {'S', &mod_big_s}, //list of string
     {'b', &mod_b}, //unsigned binary conversion
     {'f', &mod_f}, //double
+    {'p', &mod_p}, //pointer
     {'i', NULL}, //int, long int, long long int
     {'F', NULL}, //double
-    {'p', NULL}, //pointer
     {'u', NULL}, //unsigned decimal conversion
     {'c', NULL}, //unsigned char
     {'a', NULL}, //double in hexadecimal
