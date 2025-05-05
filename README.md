@@ -14,9 +14,10 @@ This printf does not use any mallocs, but it has static buffers where possible t
 ## __table of contents__
 
  - [Man my_printf](#man-my_printf).
-    - [available functions](#available-functions).
+    - [Available functions](#available-functions).
     - [Format of the format string](#format-of-the-format-string).
-    - [available conversions](#available-conversions-and-what-they-support).
+    - [Available conversions](#available-conversions-and-what-they-support).
+    - [Return value](#return-value).
  - [Known issues](#known-issues).
 
 # __Man my_printf__
@@ -46,7 +47,13 @@ This printf does not use any mallocs, but it has static buffers where possible t
 | X | <ul><li>```#```: prefix the result with 0X</li><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an unisgned int in HEXADECIMAL |
 | b | <ul><li>```#```: prefix the result with 0b</li><li>```0```: pad with 0</li><li>```' '```: add a space every 4 digits</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an int in binary. |
 | f | <ul><li>```#```: always put the decimal point</li><li>```0```: pad with 0</li><li>```-```: pad on the right</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a double |
-| X | <ul><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a pointer in hexadecimal |
+| p | <ul><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a pointer in hexadecimal |
+
+### __Return value__
+
+  <ins>On succes:</ins> The number of characters printed.\
+  <ins>On error:</ins> A negative value.
+
 # __Known issues__
 
 > [!CAUTION]
