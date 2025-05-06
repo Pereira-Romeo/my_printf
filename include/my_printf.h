@@ -27,8 +27,21 @@
     //nb bits in int
     #define BITS_INT sizeof(int) * 8
 
+/** write format to the standard output
+ * @param format string containing the format
+ * @param ... arguments corresponding to the formats
+ * @returns number of characters written to the output
+ * OR -1 on error
+*/
 int my_printf(char *format, ...);
 
+/** write format to a file descriptor
+ * @param fd file descriptor to write at
+ * @param format string containing the format
+ * @param ... arguments corresponding to the formats
+ * @returns number of characters written to the output
+ * OR -1 on error
+*/
 int my_dprintf(int fd, char *format, ...);
 
 //fspe_t struct for my_printf
