@@ -100,7 +100,7 @@ This printf does not use any mallocs, but it has static buffers where possible t
   </details>
 
   >[!NOTE]
-  > The dependencies written here only represent the direct dependencies of my_printf.h and no indirect depencie acquired by the lib.
+  > The dependencies written here only represent the direct dependencies of my_printf.h and no indirect dependencies acquired through My_lib.
 
 # __Known issues__
 
