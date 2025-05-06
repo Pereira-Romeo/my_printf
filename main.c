@@ -59,6 +59,7 @@ void test_mod_d(void)
     printf("15 in hexa is: %- 8.8d\n", -15);
 }
 
+static
 void test_mod_big_s(void)
 {
     char *strs[] = {"hello", "world", "here is", "a", "list of string!", NULL};
@@ -104,7 +105,12 @@ void test_mod_p(void)
     my_printf("bruh is: '%s' at %p\n", bruh, bruh);
     printf("bruh is: '%s' at %p\n", bruh, bruh);
     my_printf("bruh2 is: '%*s' at %.20p\n", my_strlen(bruh) - 1, bruh2, bruh2);
-    printf("bruh2 is: '%*s' at %#.20p\n", my_strlen(bruh) - 1, bruh2, bruh2);
+    printf("bruh2 is: '%*s' at %.20p\n", my_strlen(bruh) - 1, bruh2, bruh2);
+}
+
+void test_mod_c(void)
+{
+    my_printf("%cell%-2ci'm testing modulo%2c\n", 'H', 'o', 'c');
 }
 
 int main(void)
@@ -116,6 +122,7 @@ int main(void)
     test_mod_b();
     test_mod_f();
     test_mod_p();
+    test_mod_c();
     my_printf("Done testing\n");
     return 0;
 }
