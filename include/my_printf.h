@@ -86,7 +86,7 @@ typedef struct spe_s {
 }spe_t;
 
 
-//transformations:
+//------------------------- transformations -------------------------//
 
 /** handle a string transformation
  * @param list va_list
