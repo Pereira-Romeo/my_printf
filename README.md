@@ -5,11 +5,11 @@ A personnal project that i work on during my free time and work hours because i 
 This printf does not use any mallocs, but it has static buffers where possible to prevent doing ```write()``` syscalls too often. (still working on the optimization for this part)
 
 > [!IMPORTANT]
-> This my_printf will be available in [my_lib](https://github.com/Pereira-Romeo/My_lib). \
+> This my_printf is available in [my_lib](https://github.com/Pereira-Romeo/My_lib). \
 > Since it depends heavily on my library it would be annoying to have to keep it outside the library like it is in this repo. 
 
 > [!TIP]
-> For easier reading i recommend to look at it from [here](./README.md).
+> For easier reading i recommend to read this man [here](./README.md).
 
 ## __table of contents__
 
@@ -19,6 +19,7 @@ This printf does not use any mallocs, but it has static buffers where possible t
     - [Format of the format string](#format-of-the-format-string).
     - [Available conversions](#available-conversions-and-what-they-support).
     - [Return value](#return-value).
+    - [Dependencies](#dependencies).
  - [Known issues](#known-issues).
 
 # __Man my_printf__
@@ -68,9 +69,39 @@ This printf does not use any mallocs, but it has static buffers where possible t
   <ins>On succes:</ins> The number of characters printed.\
   <ins>On error:</ins> A negative value.
 
-# __Known issues__
+### __Dependencies__
 
-> [!CAUTION]
-> It isn't yet in my_lib since it doesn't handle as many conversion as the old version just yet, even tho is handles the current ones much better than the old one.
+  <details>
+
+  <summary> My_lib </summary>
+
+  - my_errno.h
+  - my_str.h
+  - my_bool.h
+  - my_math.h
+
+  </details>
+
+
+  <details>
+
+  <summary> libc </summary>
+
+  - stddef.h
+    - NULL
+  - unistd.h
+    - write()
+  - stdarg.h
+    - va_list
+    - va_start()
+    - va_arg()
+    - va_end()
+  
+  </details>
+
+  >[!NOTE]
+  > The dependencies written here only represent the direct dependencies of my_printf.h and no indirect depencie acquired by the lib.
+
+# __Known issues__
 
  - None for now (except the missing conversions but that is on going)
