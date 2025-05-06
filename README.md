@@ -14,7 +14,8 @@ This printf does not use any mallocs, but it has static buffers where possible t
 ## __table of contents__
 
  - [Man my_printf](#man-my_printf).
-    - [Available functions](#available-functions).
+    - [Synopsis](#synopsis).
+    - [Description](#description).
     - [Format of the format string](#format-of-the-format-string).
     - [Available conversions](#available-conversions-and-what-they-support).
     - [Return value](#return-value).
@@ -22,9 +23,21 @@ This printf does not use any mallocs, but it has static buffers where possible t
 
 # __Man my_printf__
 
-### __Available functions:__
-- ```my_printf(char *format, ...);```
-- ```my_dprintf(int fd, char *format, ...);```
+### __Synopsis__
+
+  ```
+  #include "my_printf.h" (OR #include "my.h" to have the whole library)
+
+  my_printf(char *format, ...);
+  my_dprintf(int fd, char *format, ...);
+  ```
+
+### __Description__
+
+  The my_printf family produces an output according to the formats given by the user.
+
+  my_printf() will write its output to the standard output.\
+  my_dprintf() will write its output to the specified file descriptor given in first argument.
 
 ### __Format of the format string:__
 ```%[flags][width][.precision][length modifier]conversion```
@@ -48,6 +61,7 @@ This printf does not use any mallocs, but it has static buffers where possible t
 | b | <ul><li>```#```: prefix the result with 0b</li><li>```0```: pad with 0</li><li>```' '```: add a space every 4 digits</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display an int in binary. |
 | f | <ul><li>```#```: always put the decimal point</li><li>```0```: pad with 0</li><li>```-```: pad on the right</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a double |
 | p | <ul><li>```0```: pad with 0</li></ul> | $${\color{green}supported}$$ | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | Display a pointer in hexadecimal |
+| c | <ul><li>```0```: pad with 0</li><li>```-```: pad on the right</li></ul> | $${\color{green}supported}$$ | $${\color{red}not\ supported}$$ | $${\color{red}not\ supported}$$ | Display a char |
 
 ### __Return value__
 
@@ -59,5 +73,4 @@ This printf does not use any mallocs, but it has static buffers where possible t
 > [!CAUTION]
 > It isn't yet in my_lib since it doesn't handle as many conversion as the old version just yet, even tho is handles the current ones much better than the old one.
 
- - some flags aren't supported
- - length modifiers aren't supported by many conversions
+ - None for now (except the missing conversions but that is on going)
