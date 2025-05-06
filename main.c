@@ -57,6 +57,10 @@ void test_mod_d(void)
     printf("long int: %+8.10ld\n", 1015160854169810681);
     my_printf("15 in hexa is: %- 8.8d\n", -15);
     printf("15 in hexa is: %- 8.8d\n", -15);
+    my_printf("0 is: %.0d\n", 0);
+    printf("0 is: %.0d\n", 0);
+    my_printf("5 is: %.0d\n", 5);
+    printf("5 is: %.0d\n", 5);
 }
 
 static

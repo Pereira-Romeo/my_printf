@@ -37,7 +37,8 @@ int lli_mod_d(va_list list, fspe_t *pf)
         len += print_plus(pf);
     }
     len += zero_padding(my_llilen(nb), pf);
-    len += pf_putlli(nb, pf);
+    if (nb != 0 || pf->precision != 0)
+        len += pf_putlli(nb, pf);
     if (pf->flags & 4)
         len += pf_width_handler(Tlen, pf);
     return len;
